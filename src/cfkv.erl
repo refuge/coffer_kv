@@ -16,7 +16,7 @@
 
 -module(cfkv).
 
-%% This is the main API for coffer_kv (cfjkv).
+%% This is the main API for coffer_kv (cfkv).
 
 %% First is to assume thw following concepts:
 %%
@@ -25,3 +25,27 @@
 %%   * cfkv serializes all writes
 %%   * probably needs some kind of reference for the client to hold to do anything
 %%
+
+-export([open/1, close/1]).
+-export([get/2, put/3]).
+-export([delete/2]).
+-export([fold/3]).
+
+open(_Uri) ->
+    ok.
+
+close(_Pid) ->
+    ok.
+
+get(_Pid, _Key) ->
+    ok.
+
+put(_Pid, _Key, _Value) ->
+    ok.
+
+delete(_Pid, _Key) ->
+    ok.
+
+fold(_Pid, _Func, _Acc) ->
+    ok.
+
