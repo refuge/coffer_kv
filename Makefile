@@ -23,3 +23,6 @@ distclean: clean
 dialyzer: compile
 	@dialyzer -Wno_return -c ebin
 
+check:
+	@$(REBAR) eunit
+
