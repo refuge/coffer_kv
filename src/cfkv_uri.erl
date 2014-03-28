@@ -20,8 +20,23 @@
 
 -export([parse/1]).
 
+%% This module allows the caller to parse a kv store URI to be parsed
+%% into a simple record used by coffer_kv to manage each storage.
 %% 
-% cfkv:backend:options
+%%     It basically boils down to:
+%%       cfkv:<backend>:<options>
+%% 
+%%     with:
+%%       - cfkv is the contant part, so don't change that
+%%       - <backend> is a name defined in the application env mapping a backend module
+%%         example: [backends, {<<"foo">>, cfkv_foo}]
+%%                  which defines the backend name "foo" using the module cfkv_foo
+%%       - <options> is an optional part. Each option is a key/value pair. It's using
+%%         the following syntax:
+%%         <key>=<value>&<key>=<value> e.g.: foo=2&bar=[1,3]
+%%         Those options depends of the backend implementation.
+
+% @doc parse a storage URI
 parse(Uri) when is_binary(Uri) ->
     case re:split(Uri, ?URI_DELIM) of
         [?URI_HEADER, BackendName, OptionsValue] ->
