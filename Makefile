@@ -24,5 +24,5 @@ dialyzer: compile
 	@dialyzer -Wno_return -c ebin
 
 check:
-	@$(REBAR) eunit
+	@$(REBAR) eunit skip_deps=true
 
