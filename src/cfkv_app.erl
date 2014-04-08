@@ -26,6 +26,8 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
+    lager:start(),
+
     cfkv_sup:start_link().
 
 stop(_State) ->

@@ -23,6 +23,6 @@ distclean: clean
 dialyzer: compile
 	@dialyzer -Wno_return -c ebin
 
-check:
+test: compile
 	@$(REBAR) eunit skip_deps=true
 

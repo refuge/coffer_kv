@@ -1,12 +1,9 @@
 {application, cfkv,
  [
-  {description, ""},
-  {vsn, "1"},
+  {description, "Coffer KV Engine"},
+  {vsn, "0.1"},
   {registered, []},
-  {applications, [
-                  kernel,
-                  stdlib
-                 ]},
+  {applications, [ kernel, stdlib ]},
   {mod, { cfkv_app, []}},
   {env, []}
  ]}.
